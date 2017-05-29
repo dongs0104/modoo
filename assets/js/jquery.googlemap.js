@@ -3,10 +3,10 @@ $(function() {
 	$.fn.googleMap = function(params) {
 		params = $.extend( {
 			zoom : 10,
-			coords : [48.895651, 2.290569],
+			coords : [36.1283608,128.330983],
 			type : "ROADMAP",
 			debug : false,
-			langage : "english",
+			langage : "korean",
 			overviewMapControl: false,
 			streetViewControl: false,
 			scrollwheel: false,
