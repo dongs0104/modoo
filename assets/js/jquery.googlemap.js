@@ -13,7 +13,7 @@ $(function() {
 			mapTypeControl: false
 		}, params);
 
-		/*switch(params.type) {
+		switch(params.type) {
 			case 'ROADMAP':
 			case 'SATELLITE':
 			case 'HYBRID':
@@ -23,7 +23,7 @@ $(function() {
 			default:
 				params.type = google.maps.MapTypeId.ROADMAP;
 				break;
-		}*/
+		}
 
 		this.each(function() {
 
