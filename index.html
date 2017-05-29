@@ -74,14 +74,14 @@
 								<span class="image main">
 								<img src="images/pic03.jpg" alt="" /></span>
 								<span class="name">신동</span>:<span class="content main">금오공과대학교 4학년 프로젝트 기획,서버 사이드(Node.js) 개발</span><br>
-								<span class="name">정인철</span>:<span class="content main">금오공과대학교 4학년 프로젝트 기획, 서버, 안드로이드(Socket.io) 개발</span><br>
+								<span class="name">정인철</span>:<span class="content main">금오공과대학교 4학년 서버, 안드로이드(Socket.io) 개발</span><br>
 								<span class="name">백재욱</span>:<span class="content main">금오공과대학교 4학년 안드로이드(프론트 앤드) 개발</span>
 							</article>
 
 						<!-- Contact -->
 							<article id="contact">
 								<h2 class="major">Contact</h2>
-								<form method="post" action="#">
+								<form method="get" action="#" id="form-contact">
 									<div class="field half first">
 										<label for="name">Name</label>
 										<input type="text" name="name" id="name" />
@@ -95,16 +95,16 @@
 										<textarea name="message" id="message" rows="4"></textarea>
 									</div>
 									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="special" /></li>
+										<li><input type="button" id= "form-sendButton" value="Send Message" class="special" /></li>
 										<li><input type="reset" value="Reset" /></li>
 									</ul>
 								</form>
-								<ul class="icons">
+								<!--<ul class="icons">
 									<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
 									<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
 									<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
 									<li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
+								</ul>-->
 							</article>
 
 						<!-- Elements -->
@@ -370,6 +370,40 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+                $(document).ready(function() {
+                 $("#form-sendButton").click(function() {
+                  var formData = $("#form-contact").serializeObject();
+                     console.log(formData);
+                  $.ajax({
+                   type : "POST",
+                    dataType : 'json',
+                    url : "https://csets.xyz/saveContent",
+                    data : formData
+                  });
+                 });
+                });
+            </script>
+            <script>
+            $.fn.serializeObject = function () {
+                "use strict";
+                var result = {};
+                var extend = function (i, element) {
+                    var node = result[element.name];
+                    if ('undefined' !== typeof node && node !== null) {
+                       if ($.isArray(node)) {
+                           node.push(element.value);
+                       } else {
+                           result[element.name] = [node, element.value];
+                       }
+                    } else {
+                        result[element.name] = element.value;
+                    }
+                };
 
+                $.each(this.serializeArray(), extend);
+                return result;
+            };
+        </script>
 	</body>
 </html>
