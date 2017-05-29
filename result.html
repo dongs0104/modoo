@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <style>
+        #map {
+            height: 500px;
+            width: 65%;
+        }
+        #result {
+            height: 500px;
+            width: 33%;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>결과 값을 위한 임시 페이지</title>
+</head>
+<body>
+<div id="map"></div>
+<div id="result"></div>
+
+</body>
+<script src="assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.googlemap.js"></script>
+<script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANIsfp7D63KrEV-kkG2Tdkl7w5C94dQGM">
+</script>
+<script src="assets/js/resultDriver.js"></script>
+<script>
+    $( document ).ready(function(){
+    var myMoudle = me.dongs.resultMap;
+    myMoudle.loadMapData();
+});
+</script>
+</html>
