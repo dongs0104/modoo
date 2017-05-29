@@ -24,6 +24,9 @@
     .innercontent {
         text-align: center
     }
+    .name {
+        font-weight: bold;
+    }
 	body {
 		line-height: 1;
 	}
