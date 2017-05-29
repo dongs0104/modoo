@@ -17,6 +17,10 @@ if (!me.dongs.resultMap) me.dongs.resultMap = {};
     var _version = 0.1;
 
     function loadMapData() {
+        $("#map").googleMap({
+            zoom: 13, // Initial zoom level (optional)
+            coords: [36.1283608,128.330983] // Map center (optional)
+        });
         timer = setInterval( function () {
             $.ajax({
                 type :'get',
@@ -34,10 +38,6 @@ if (!me.dongs.resultMap) me.dongs.resultMap = {};
             html += '<li><span id=\"'+ userRequest.user_id +'\">' + userRequest.user_id + ", " + tempMarker + ", " + userRequest.end_point + ' </span></li>';
         });
         $('#result').html(html);
-        $("#map").googleMap({
-            zoom: 6, // Initial zoom level (optional)
-            coords: [36.1283608,128.330983] // Map center (optional)
-        });
         $.each(Markers, function(index, Marker){
             $("#map").addMarker({
                 coords: Marker
